@@ -1,4 +1,8 @@
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 //TODO Delete all imports at the end and then add them one by one because dark voodoo reasons
@@ -12,6 +16,7 @@ public class Gui extends JFrame{
 	private JMenu file;
 	private JMenu options;
 	private JMenu help;
+	ImageIcon icon;
 	
 	public static void main(String[] args) {
 		Gui gui = new Gui();
@@ -22,10 +27,21 @@ public class Gui extends JFrame{
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window = new JFrame("Pirex: The faultier way of storing your archives");
-		menuBar = new JMenuBar();	
+		
+		try {
+			icon = new ImageIcon(ImageIO.read(new File("assets/logo.png")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		window.setIconImage(icon.getImage());
+		
+		menuBar = new JMenuBar();
+		
 		file = new JMenu("File");
 		options = new JMenu("Options");
 		help = new JMenu("Help");
+		
 		JMenuItem index = new JMenuItem("Index");
 		JMenuItem about = new JMenuItem("About");
 		
