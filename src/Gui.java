@@ -16,17 +16,20 @@ public class Gui extends JFrame{
 	private JMenu file;
 	private JMenu options;
 	private JMenu help;
-	ImageIcon icon;
+	private ImageIcon icon;
+	Container contentPane;
 	
 	public static void main(String[] args) {
-		Gui gui = new Gui();
+		JFrame gui = new Gui();
 
 	}
 	
 	public Gui()
 	{
+		super("Pirex");
+		contentPane = getContentPane();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window = new JFrame("Pirex: The faultier way of storing your archives");
+		//window = new JFrame();
 		
 		try {
 			icon = new ImageIcon(ImageIO.read(new File("assets/logo.png")));
@@ -34,10 +37,10 @@ public class Gui extends JFrame{
 			e.printStackTrace();
 		}
 		
-		window.setIconImage(icon.getImage());
+		this.setIconImage(icon.getImage());
 		
 		menuBar = new JMenuBar();
-		
+		//menuBar.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.GRAY)); // maybe we want a border here?
 		file = new JMenu("File");
 		options = new JMenu("Options");
 		help = new JMenu("Help");
@@ -54,10 +57,10 @@ public class Gui extends JFrame{
 		menuBar.add(options);
 		menuBar.add(help);
 		
-		window.setLayout(new BorderLayout());
-		window.setVisible(true);
-		window.setSize(600, 400);
-		window.add(menuBar, BorderLayout.NORTH);
+		this.setLayout(new BorderLayout());
+		this.setVisible(true);
+		this.setSize(600, 400);
+		this.add(menuBar, BorderLayout.NORTH);
 		
 		
 		
