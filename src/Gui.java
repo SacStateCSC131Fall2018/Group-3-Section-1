@@ -18,6 +18,7 @@ public class Gui extends JFrame{
 	private JMenu help;
 	private ImageIcon icon;
 	Container contentPane;
+	private JPanel mainContent;
 	
 	public static void main(String[] args) {
 		JFrame gui = new Gui();
@@ -29,8 +30,32 @@ public class Gui extends JFrame{
 		super("Pirex");
 		contentPane = getContentPane();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//window = new JFrame();
 		contentPane.setLayout(new BorderLayout());
+		this.setSize(600, 400);
+		
+		setIcon();
+		setupMenu();			
+		
+		mainContent = new JPanel();
+		getContentPane().add(mainContent, BorderLayout.CENTER);
+		mainContent.setLayout(new BorderLayout(0, 0));
+		
+		JPanel buttonPanel = new JPanel();
+		mainContent.add(buttonPanel, BorderLayout.NORTH);
+		buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		
+		JButton searchBtn = new JButton("Search Documents");
+		buttonPanel.add(searchBtn);
+		
+		JButton loadBtn = new JButton("Load Documents");
+		buttonPanel.add(loadBtn);
+		
+		JButton summBtn = new JButton("Summarize Documents");
+		buttonPanel.add(summBtn);
+		this.setVisible(true);
+	}
+	
+	private void setIcon() {
 		try {
 			icon = new ImageIcon(ImageIO.read(new File("assets/logo.png")));
 		} catch (IOException e) {
@@ -38,29 +63,22 @@ public class Gui extends JFrame{
 		}
 		
 		this.setIconImage(icon.getImage());
-		
+	}
+	
+	private void setupMenu() {
 		menuBar = new JMenuBar();
-		//setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.GRAY)); // maybe we want a border here?
 		file = new JMenu("File");
 		options = new JMenu("Options");
 		help = new JMenu("Help");
-		
 		JMenuItem index = new JMenuItem("Index");
 		JMenuItem about = new JMenuItem("About");
 		
 		about.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Made by Group 3"));
-		
 		help.add(index);
 		help.add(about);
-		
 		menuBar.add(file);
 		menuBar.add(options);
 		menuBar.add(help);
-		
-		
-		
-		this.setSize(600, 400);
-		this.add(menuBar, BorderLayout.NORTH);	
-		this.setVisible(true);
+		getContentPane().add(menuBar, BorderLayout.NORTH);
 	}
 }
