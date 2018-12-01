@@ -30,7 +30,7 @@ public class Gui extends JFrame{
 		contentPane = getContentPane();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//window = new JFrame();
-		
+		contentPane.setLayout(new BorderLayout());
 		try {
 			icon = new ImageIcon(ImageIO.read(new File("assets/logo.png")));
 		} catch (IOException e) {
@@ -40,7 +40,7 @@ public class Gui extends JFrame{
 		this.setIconImage(icon.getImage());
 		
 		menuBar = new JMenuBar();
-		//menuBar.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.GRAY)); // maybe we want a border here?
+		//setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.GRAY)); // maybe we want a border here?
 		file = new JMenu("File");
 		options = new JMenu("Options");
 		help = new JMenu("Help");
@@ -57,14 +57,10 @@ public class Gui extends JFrame{
 		menuBar.add(options);
 		menuBar.add(help);
 		
-		this.setLayout(new BorderLayout());
-		this.setVisible(true);
+		
+		
 		this.setSize(600, 400);
-		this.add(menuBar, BorderLayout.NORTH);
-		
-		
-		
+		this.add(menuBar, BorderLayout.NORTH);	
+		this.setVisible(true);
 	}
-	
-
 }
