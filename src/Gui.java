@@ -2,8 +2,11 @@ import java.awt.*;
 import javax.swing.*;
 
 //TODO Delete all imports at the end and then add them one by one because dark voodoo reasons
-public class Gui {
-
+public class Gui extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JFrame window;
 	private JMenuBar menuBar;
 	private JMenu file;
@@ -17,13 +20,12 @@ public class Gui {
 	
 	public Gui()
 	{
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window = new JFrame("Pirex: The faultier way of storing your archives");
-		menuBar = new JMenuBar();
-		
+		menuBar = new JMenuBar();	
 		file = new JMenu("File");
 		options = new JMenu("Options");
 		help = new JMenu("Help");
-		
 		JMenuItem index = new JMenuItem("Index");
 		JMenuItem about = new JMenuItem("About");
 		
