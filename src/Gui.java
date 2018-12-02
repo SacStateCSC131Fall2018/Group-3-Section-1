@@ -1,8 +1,5 @@
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
+import java.net.URL;
 import javax.swing.*;
 
 //TODO Delete all imports at the end and then add them one by one because dark voodoo reasons
@@ -11,7 +8,6 @@ public class Gui extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JFrame window;
 	private JMenuBar menuBar;
 	private JMenu file;
 	private JMenu options;
@@ -56,11 +52,8 @@ public class Gui extends JFrame{
 	}
 	
 	private void setIcon() {
-		try {
-			icon = new ImageIcon(ImageIO.read(new File("assets/logo.png")));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		URL iconUrl = Gui.class.getResource("assets/logo.png");
+		icon = new ImageIcon(iconUrl);
 		
 		this.setIconImage(icon.getImage());
 	}
