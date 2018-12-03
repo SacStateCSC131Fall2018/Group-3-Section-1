@@ -60,11 +60,24 @@ public class Gui extends JFrame{
 	
 	private void setupMenu() {
 		menuBar = new JMenuBar();
+		
 		file = new JMenu("File");
+		JMenuItem loadQuery = new JMenuItem("Load Query");
+		JMenuItem export = new JMenuItem("Export");
+		JMenuItem exit = new JMenuItem("Exit");
+		
 		options = new JMenu("Options");
+		
 		help = new JMenu("Help");
 		JMenuItem index = new JMenuItem("Index");
 		JMenuItem about = new JMenuItem("About");
+		
+		loadQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
+		export.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
+		exit.addActionListener((event) -> System.exit(0));
+		file.add(loadQuery);
+		file.add(export);
+		file.add(exit);
 		
 		about.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Made by Group 3"));
 		help.add(index);
