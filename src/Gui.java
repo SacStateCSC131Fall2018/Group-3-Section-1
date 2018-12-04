@@ -80,6 +80,7 @@ public class Gui extends JFrame{
 		file.add(exit);
 		
 		about.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Made by Group 3"));
+		index.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		help.add(index);
 		help.add(about);
 		menuBar.add(file);
