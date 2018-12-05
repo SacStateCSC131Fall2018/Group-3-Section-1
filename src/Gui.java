@@ -14,7 +14,6 @@ public class Gui extends JFrame{
 	private JMenu help;
 	private ImageIcon icon;
 	Container contentPane;
-	private JPanel mainContent;
 
 	public static void main(String[] args) {
 		JFrame gui = new Gui();
@@ -32,10 +31,7 @@ public class Gui extends JFrame{
 		setIcon();
 		setupMenu();
 		setupPanels();
-		setupButtons();
-		
-		
-		
+
 		this.setVisible(true);
 	}
 
@@ -81,23 +77,17 @@ public class Gui extends JFrame{
 		getContentPane().add(menuBar, BorderLayout.NORTH);
 	}
 	private void setupPanels() {
-		mainContent = new JPanel();
-		getContentPane().add(mainContent, BorderLayout.CENTER);
-		mainContent.setLayout(new BorderLayout(0, 0));
-	}
-	
-	private void setupButtons() {
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		mainContent.add(tabbedPane, BorderLayout.CENTER);
+		getContentPane().add(tabbedPane, BorderLayout.CENTER);
 		
 		JPanel seachPanel = new JPanel();
 		tabbedPane.addTab("Search Documents", null, seachPanel, null);
 		
 		JPanel loadPanel = new JPanel();
 		tabbedPane.addTab("Load Documents", null, loadPanel, null);
-	
-		JPanel summPanel = new JPanel();
-		tabbedPane.addTab("Summarize Documents", null, summPanel, null);
+		
+			JPanel summPanel = new JPanel();
+			tabbedPane.addTab("Summarize Documents", null, summPanel, null);
 	}
 }
