@@ -31,23 +31,11 @@ public class Gui extends JFrame{
 
 		setIcon();
 		setupMenu();
-
-		mainContent = new JPanel();
-		getContentPane().add(mainContent, BorderLayout.CENTER);
-		mainContent.setLayout(new BorderLayout(0, 0));
-
-		JPanel buttonPanel = new JPanel();
-		mainContent.add(buttonPanel, BorderLayout.NORTH);
-		buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
-
-		JButton searchBtn = new JButton("Search Documents");
-		buttonPanel.add(searchBtn);
-
-		JButton loadBtn = new JButton("Load Documents");
-		buttonPanel.add(loadBtn);
-
-		JButton summBtn = new JButton("Summarize Documents");
-		buttonPanel.add(summBtn);
+		setupPanels();
+		setupButtons();
+		
+		
+		
 		this.setVisible(true);
 	}
 
@@ -91,5 +79,25 @@ public class Gui extends JFrame{
 		menuBar.add(options);
 		menuBar.add(help);
 		getContentPane().add(menuBar, BorderLayout.NORTH);
+	}
+	private void setupPanels() {
+		mainContent = new JPanel();
+		getContentPane().add(mainContent, BorderLayout.CENTER);
+		mainContent.setLayout(new BorderLayout(0, 0));
+	}
+	
+	private void setupButtons() {
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		mainContent.add(tabbedPane, BorderLayout.CENTER);
+		
+		JPanel seachPanel = new JPanel();
+		tabbedPane.addTab("Search Documents", null, seachPanel, null);
+		
+		JPanel loadPanel = new JPanel();
+		tabbedPane.addTab("Load Documents", null, loadPanel, null);
+	
+		JPanel summPanel = new JPanel();
+		tabbedPane.addTab("Summarize Documents", null, summPanel, null);
 	}
 }
