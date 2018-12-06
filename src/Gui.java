@@ -70,12 +70,13 @@ public class Gui extends JFrame {
 		exit.addActionListener((event) -> System.exit(0));
 		saveQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 
-    file.add(loadQuery);
-    file.add(saveQuery);
+		file.add(loadQuery);
+		file.add(saveQuery);
 		file.add(export);
 		file.add(exit);
 
-    loadQuery.addActionListener(new ActionListener() {
+		loadQuery.addActionListener(new ActionListener()
+		{
 
 			JFileChooser cho;
 			String cht;
@@ -93,7 +94,7 @@ public class Gui extends JFrame {
 							cho.getCurrentDirectory();
 							cho.getSelectedFile();
 				}
-      }
+			}
 		});
 
 	}
