@@ -355,8 +355,131 @@ public class Gui extends JFrame {
 		processTextPanel.add(processedText);
 		//End Load tab code
 		
+		// Start Summarize Panel
 		JPanel summPanel = new JPanel();
 		tabbedPane.addTab("Summarize Documents", null, summPanel, null);
+		summPanel.setLayout(new BorderLayout(0,0));
 		
+		JPanel fileInfoPanel = new JPanel();
+		summPanel.add(fileInfoPanel, BorderLayout.NORTH);
+		fileInfoPanel.setLayout(new BoxLayout(fileInfoPanel, BoxLayout.X_AXIS));
+		
+		Component fileInfoHStrut_1 = Box.createHorizontalStrut(20);
+		fileInfoHStrut_1.setPreferredSize(new Dimension(10,0));
+		fileInfoPanel.add(fileInfoHStrut_1);
+		
+		JLabel filePathLabel = new JLabel("File Path:");
+		filePathLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		fileInfoPanel.add(filePathLabel);
+		
+		Component fileInfoHStrut_2 = Box.createHorizontalStrut(20);
+		fileInfoHStrut_2.setPreferredSize(new Dimension(10,0));
+		fileInfoPanel.add(fileInfoHStrut_2);
+		
+		JTextField filePathField = new JTextField("C:\\Users\\TestUser\\AppData\\Pirex\\testOpus_01.txt");
+		filePathField.setHorizontalAlignment(SwingConstants.LEFT);
+		filePathField.setColumns(10);
+		filePathField.setEditable(false);
+		fileInfoPanel.add(filePathField);
+		
+		JPanel opusInfoPanel = new JPanel();
+		summPanel.add(opusInfoPanel, BorderLayout.CENTER);
+		opusInfoPanel.setLayout(new BoxLayout(opusInfoPanel, BoxLayout.PAGE_AXIS));
+		
+		Component opusInfoStrut_V1 = Box.createVerticalStrut(20);
+		opusInfoPanel.add(opusInfoStrut_V1);
+	
+		JPanel opusTitle = new JPanel();
+		opusTitle.setLayout(new BoxLayout(opusTitle, BoxLayout.X_AXIS));
+		opusInfoPanel.add(opusTitle);
+		
+		Component opusTitleStrut_H1 = Box.createHorizontalStrut(20);
+		opusTitleStrut_H1.setPreferredSize(new Dimension(10,0));
+		opusTitle.add(opusTitleStrut_H1);
+		
+		JLabel opusTitleLabel = new JLabel("Opus Title:");
+		opusTitleLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		opusTitle.add(opusTitleLabel);
+		
+		Component opusTitleStrut_H2 = Box.createHorizontalStrut(20);
+		opusTitleStrut_H2.setPreferredSize(new Dimension(10,0));
+		opusTitle.add(opusTitleStrut_H2);
+		
+		JTextField opusTitleField = new JTextField("Test Opus");
+		opusTitleField.setHorizontalAlignment(SwingConstants.LEFT);
+		opusTitleField.setEditable(false);
+		opusTitle.add(opusTitleField);
+		
+		Component opusInfoStrut_V2 = Box.createVerticalStrut(10);
+		opusInfoPanel.add(opusInfoStrut_V2);
+		
+		JPanel opusAuthor = new JPanel();
+		opusAuthor.setLayout(new BoxLayout(opusAuthor, BoxLayout.X_AXIS));
+		opusInfoPanel.add(opusAuthor);
+		
+		Component opusAuthorStrut_H1 = Box.createHorizontalStrut(20);
+		opusAuthorStrut_H1.setPreferredSize(new Dimension(10,0));
+		opusAuthor.add(opusAuthorStrut_H1);
+		
+		JLabel opusAuthorLabel = new JLabel("Opus Author:");
+		opusAuthorLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		opusAuthor.add(opusAuthorLabel);
+		
+		Component opusAuthorStrut_H2 = Box.createHorizontalStrut(20);
+		opusAuthorStrut_H2.setPreferredSize(new Dimension(10,0));
+		opusAuthor.add(opusAuthorStrut_H2);
+		
+		JTextField opusAuthorField = new JTextField("Group 3");
+		opusAuthorField.setHorizontalAlignment(SwingConstants.LEFT);
+		opusAuthorField.setEditable(false);
+		opusAuthor.add(opusAuthorField);
+		
+		Component opusInfoStrut_V3 = Box.createVerticalStrut(10);
+		opusInfoPanel.add(opusInfoStrut_V3);
+		
+		JPanel opusExtras = new JPanel();
+		opusExtras.setLayout(new BoxLayout(opusExtras, BoxLayout.X_AXIS));
+		opusInfoPanel.add(opusExtras);
+		
+		Component opusExtraStrut_H1 = Box.createHorizontalStrut(10);
+		opusExtraStrut_H1.setPreferredSize(new Dimension(10,0));
+		opusExtras.add(opusExtraStrut_H1);
+		
+		JLabel opusOrdiLabel = new JLabel("Ordinal Numbers: ");
+		opusExtras.add(opusOrdiLabel);
+		JTextField opusOrdiField = new JTextField("");
+		opusOrdiField.setEditable(false);
+		opusExtras.add(opusOrdiField);
+		
+		Component opusExtraStrut_H2 = Box.createHorizontalStrut(10);
+		opusExtraStrut_H2.setPreferredSize(new Dimension(10,0));
+		opusExtras.add(opusExtraStrut_H2);
+		
+		JLabel opusDocNumLabel = new JLabel("# of Documents: ");
+		opusExtras.add(opusDocNumLabel);
+		JTextField opusDocNumField = new JTextField("");
+		opusDocNumField.setEditable(false);
+		opusExtras.add(opusDocNumField);
+		
+		Component opusExtraStrut_H3 = Box.createHorizontalStrut(10);
+		opusExtraStrut_H3.setPreferredSize(new Dimension(10,0));
+		opusExtras.add(opusExtraStrut_H3);
+		
+		JLabel opusIndexLabel = new JLabel("# of Index Terms: ");
+		opusExtras.add(opusIndexLabel);
+		JTextField opusIndexField = new JTextField("");
+		opusIndexField.setEditable(false);
+		opusExtras.add(opusIndexField);
+		
+		Component opusExtraStrut_H4 = Box.createHorizontalStrut(10);
+		opusExtraStrut_H4.setPreferredSize(new Dimension(10,0));
+		opusExtras.add(opusExtraStrut_H4);
+		
+		JLabel opusPostLabel = new JLabel("# of Postings: ");
+		opusExtras.add(opusPostLabel);
+		JTextField opusPostField = new JTextField("");
+		opusPostField.setEditable(false);
+		opusExtras.add(opusPostField);
+
 	}
 }
