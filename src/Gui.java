@@ -88,12 +88,32 @@ public class Gui extends JFrame {
 	
 	private void setupOptionMenu()
 	{
+
 		options = new JMenu("Options");
 		JMenuItem documents = new JMenuItem("Documents");
 		
 		options.add(documents);
 		
-		documents.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
+		documents.addActionListener(new ActionListener() {
+			
+			JFileChooser chooser;
+			String choosertitle;
+		    
+			public void actionPerformed(ActionEvent e) {
+
+				chooser = new JFileChooser();
+				chooser.setCurrentDirectory(new java.io.File("."));
+				chooser.setDialogTitle(choosertitle);
+				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				
+				chooser.setAcceptAllFileFilterUsed(false);
+				
+				if (chooser.showOpenDialog(documents) == JFileChooser.APPROVE_OPTION) {
+							chooser.getCurrentDirectory();
+							chooser.getSelectedFile();
+				}
+			}
+		});
 	}
 
 	private void setupPanels() {
