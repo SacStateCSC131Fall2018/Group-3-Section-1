@@ -133,7 +133,7 @@ public class Gui extends JFrame {
 		JMenuItem index = new JMenuItem("Index");
 		JMenuItem about = new JMenuItem("About");
 
-		about.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Made by Group 3:\nColby Biegler \nLldebrando agerdahl \nMathew Iwasa \nJose Montanez \nDaniel Shevchyk \nJedjarvin Ragay \nKimlee Chea \nVu Nguyen"));
+		about.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Made by Group 3:\nColby Biegler \nIldebrando agerdahl \nMathew Iwasa \nJose Montanez \nDaniel Shevchyk \nJedjarvin Ragay \nKimlee Chea \nVu Nguyen"));
 		index.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		help.add(index);
 		help.add(about);
