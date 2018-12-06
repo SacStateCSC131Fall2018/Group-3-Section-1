@@ -64,12 +64,16 @@ public class Gui extends JFrame {
 		JMenuItem loadQuery = new JMenuItem("Load Query");
 		JMenuItem export = new JMenuItem("Export");
 		JMenuItem exit = new JMenuItem("Exit");
+		JMenuItem saveQuery = new JMenuItem("Save Query");
 		
 		loadQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		export.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		exit.addActionListener((event) -> System.exit(0));
-		
+		saveQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		file.add(loadQuery);
+		
+		
+		file.add(saveQuery);
 		file.add(export);
 		file.add(exit);
 	}
@@ -271,9 +275,9 @@ public class Gui extends JFrame {
 		Component loadFileVertStrut_1 = Box.createVerticalStrut(10);
 		loadFilePanel.add(loadFileVertStrut_1);
 	
-		JComboBox<String> fileType;
+		JComboBox fileType;
 		String fileTypes[] = {"Project Gutenberg File", ".txt", ".rtf"};
-		fileType = new JComboBox<String> (fileTypes);
+		fileType = new JComboBox (fileTypes);
 		fileType.setBackground(Color.WHITE);
 		textFileTypePanel.add(fileType);
 		
