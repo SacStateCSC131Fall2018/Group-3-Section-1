@@ -48,30 +48,30 @@ public class Gui extends JFrame {
 	private void setupMenu() {
 		menuBar = new JMenuBar();
 		getContentPane().add(menuBar, BorderLayout.NORTH);
-
-		file = new JMenu("File");
-		JMenuItem loadQuery = new JMenuItem("Load Query");
-		JMenuItem export = new JMenuItem("Export");
-		JMenuItem exit = new JMenuItem("Exit");
-		JMenuItem documents = new JMenuItem("Documents");
-
-		options = new JMenu("Options");
-
+		
+		setupFileMenu();
+		setupOptionMenu();		
 		setupHelpMenu();
-
-		loadQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
-		documents.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
-		export.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
-		exit.addActionListener((event) -> System.exit(0));
-		file.add(loadQuery);
-		file.add(export);
-		file.add(exit);
-
-		options.add(documents);
 
 		menuBar.add(file);
 		menuBar.add(options);
 		menuBar.add(help);
+	}
+	
+	private void setupFileMenu()
+	{
+		file = new JMenu("File");
+		JMenuItem loadQuery = new JMenuItem("Load Query");
+		JMenuItem export = new JMenuItem("Export");
+		JMenuItem exit = new JMenuItem("Exit");
+		
+		loadQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
+		export.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
+		exit.addActionListener((event) -> System.exit(0));
+		
+		file.add(loadQuery);
+		file.add(export);
+		file.add(exit);
 	}
 	
 	private void setupHelpMenu()
@@ -84,6 +84,16 @@ public class Gui extends JFrame {
 		index.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		help.add(index);
 		help.add(about);
+	}
+	
+	private void setupOptionMenu()
+	{
+		options = new JMenu("Options");
+		JMenuItem documents = new JMenuItem("Documents");
+		
+		options.add(documents);
+		
+		documents.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 	}
 
 	private void setupPanels() {
