@@ -66,16 +66,36 @@ public class Gui extends JFrame {
 		JMenuItem exit = new JMenuItem("Exit");
 		JMenuItem saveQuery = new JMenuItem("Save Query");
 
-		loadQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		export.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		exit.addActionListener((event) -> System.exit(0));
 		saveQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
-		file.add(loadQuery);
 
-
-		file.add(saveQuery);
+    file.add(loadQuery);
+    file.add(saveQuery);
 		file.add(export);
 		file.add(exit);
+
+    loadQuery.addActionListener(new ActionListener() {
+
+			JFileChooser cho;
+			String cht;
+
+			public void actionPerformed(ActionEvent e) {
+
+				cho = new JFileChooser();
+				cho.setCurrentDirectory(new java.io.File("."));
+				cho.setDialogTitle(cht);
+				cho.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+				cho.setAcceptAllFileFilterUsed(false);
+
+				if (cho.showOpenDialog(loadQuery) == JFileChooser.APPROVE_OPTION) {
+							cho.getCurrentDirectory();
+							cho.getSelectedFile();
+				}
+      }
+		});
+
 	}
 
 	private void setupOptionsMenu()
