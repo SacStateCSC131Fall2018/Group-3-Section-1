@@ -57,9 +57,7 @@ public class Gui extends JFrame {
 
 		options = new JMenu("Options");
 
-		help = new JMenu("Help");
-		JMenuItem index = new JMenuItem("Index");
-		JMenuItem about = new JMenuItem("About");
+		setupHelpMenu();
 
 		loadQuery.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		documents.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
@@ -71,13 +69,21 @@ public class Gui extends JFrame {
 
 		options.add(documents);
 
+		menuBar.add(file);
+		menuBar.add(options);
+		menuBar.add(help);
+	}
+	
+	private void setupHelpMenu()
+	{
+		help = new JMenu("Help");
+		JMenuItem index = new JMenuItem("Index");
+		JMenuItem about = new JMenuItem("About");
+		
 		about.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Made by Group 3"));
 		index.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		help.add(index);
 		help.add(about);
-		menuBar.add(file);
-		menuBar.add(options);
-		menuBar.add(help);
 	}
 
 	private void setupPanels() {
