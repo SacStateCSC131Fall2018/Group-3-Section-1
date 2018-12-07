@@ -124,7 +124,9 @@ public class Gui extends JFrame {
 	{
 		options = new JMenu("Options");
 		JMenuItem documents = new JMenuItem("Documents");
-
+		JMenuItem sources = new JMenuItem("Sources");
+		options.add(sources);
+		sources.addActionListener((event) -> JOptionPane.showMessageDialog(null, "Function not available"));
 		options.add(documents);
 
 		documents.addActionListener(new ActionListener() {
@@ -402,6 +404,7 @@ public class Gui extends JFrame {
 		//End Load tab code
 
 		// Start Summarize Panel
+		/*
 		JPanel summPanel = new JPanel();
 		tabbedPane.addTab("Summarize Documents", null, summPanel, null);
 		summPanel.setLayout(new BorderLayout(0,0));
@@ -526,6 +529,48 @@ public class Gui extends JFrame {
 		JTextField opusPostField = new JTextField("");
 		opusPostField.setEditable(false);
 		opusExtras.add(opusPostField);
+		*/
+		// Fake data for summary tab
+		
+		JTextArea summarizeTextArea;
+		JPanel summarizeTab = new JPanel();
+		tabbedPane.addTab("Summarize Documents", summarizeTab);
+		summarizeTab.setLayout(new BorderLayout(0,0));
+	    	summarizeTextArea    = new JTextArea();                     
+	   	summarizeTextArea.setEditable(false);                      
+	    
+	    	JScrollPane scroller = new JScrollPane(summarizeTextArea);                         
+	    	scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);      
+	    	scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); 
+	    
+	    	summarizeTab.add(scroller, BorderLayout.CENTER);   
+	    
+	    	summarizeTextArea.setText(""); // clear text area
+	    	String [] Author = {"Charles Dickens", "Thomas Hardy", "Thomas Hardy", 
+	    		"Daniel Defoe", "Charles Dickens", "Charles Dickens"};
+	    	String [] Title = {"Bleak House", "Far from the Madding Crowd", "Jude the Obscure", 
+	    		"The Fortunes and Misfortunes of the Famous Moll ...", "Great Expectations", "A Tale of Two cities"};
+	    	String [] numDocuments = {"7312 documents", "3538 documents", "3650 documents", 
+	    		"1281 documents", "3848 documents", "3329 documents"};
+	    	String [] fileLocations = {"/Users/VuNguyen/programs/java/ir/data/bleakHouse.txt", 
+	    		"/Users/Group3/programs/java/ir/data/farFromTheMaddingCrowd.txt",
+	    		"/Users/Group3/programs/java/ir/data/judeTheObscure.txt", 
+	    		"/Users/Group3/programs/java/ir/data/mollFlanders.txt",
+	    		"/Users/Group3/programs/java/ir/data/greatExpetation.txt", 
+	    		"/Users/Group3/programs/java/ir/data/taleOfTwoCities.txt"};
+	    
+	      	for (int i = 0; i <= 5; i++) // for each Opus in the Document Store
+	      	{
+	        	String res = String.format("Opus  "+i+": " +Author[i]+"    " +Title[i]+ "      "+numDocuments[i]
+	        		+ "\n              " +fileLocations[i] + "\n");
+	        	// add string to text area
+	        	summarizeTextArea.append(res);
+	      	}
 
+	      // create string to represent total terms/postings
+	      String res = String.format("\nIndex terms: 26447\nPostings:     226412");
+	          
+	      // add to text area
+	      summarizeTextArea.append(res);
 	}
 }
